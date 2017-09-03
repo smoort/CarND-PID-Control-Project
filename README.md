@@ -3,19 +3,15 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
-## Reflection - Effect each of the P, I, D components has in the implementation is described
+## Reflection - Effect each of the P, I, D components on the implementation
 
-* Code should compile.
-* The PID procedure follows what was taught in the lessons.
-* Effect each of the P, I, D components has in the implementation is described.
-* The method of chosing the final hyperparameters is described.
-* The vehicle must successfully drive a lap around the track.
+* P component controls the intensity of correction.  The higher the P value the car tends to overshoot the desired track and takes an oscillatory path.  The lower the P value, the correction is slow tending to get off the road in sharp turns.
+* I component corrects for any systemic biases.  The wheels of the car in the simulator seemed to be aligned and hence did not have any systemic bias.  Hence no correction was needed.  Adding an I component tends to drag the car in one direction by that amount.
+* D component helped get a smoother convergence to desired path while avoiding too much overshooting.  Keeping P low and D high finally did the trick.
 
 
-## Reflection - The method of chosing the final hyperparameters is described.
+## Reflection - Method of chosing the final hyperparameters
 
-1. Clone this repo.
-2. Make a build directory: `mkdir build && cd build`
-3. Compile: `cmake .. && make`
-4. Run it: `./pid`. 
-
+* Manual tuning using trial and error was used to arrive at the final hyperparameters
+* By observing the car in a straight lane, it was evident that the car did not have any systemic bias.  Hence the I component was set to 0.
+* As high P value caused too much overshooting, used a low P value with high D value to achieve smooth convergence.
