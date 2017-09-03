@@ -43,12 +43,8 @@ public:
   /*
   * Calculate the total PID error.
   */
-  double TotalError(std::vector<double> p);
+  double TotalError();
 
-  /*
-  * Calculate best Coefficients.
-  */
-  std::vector<double> twiddle(double tolerance);
 };
 
 #endif /* PID_H */
