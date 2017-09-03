@@ -1,5 +1,8 @@
 #ifndef PID_H
 #define PID_H
+#include<vector>
+
+using namespace std;
 
 class PID {
 public:
@@ -12,7 +15,7 @@ public:
 
   /*
   * Coefficients
-  */ 
+  */
   double Kp;
   double Ki;
   double Kd;
@@ -40,7 +43,12 @@ public:
   /*
   * Calculate the total PID error.
   */
-  double TotalError();
+  double TotalError(std::vector<double> p);
+
+  /*
+  * Calculate best Coefficients.
+  */
+  std::vector<double> twiddle(double tolerance);
 };
 
 #endif /* PID_H */
